@@ -1,0 +1,72 @@
+---
+title: "Complexity"
+author: "peter"
+date: "2024-04-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggtext)
+```
+
+### Algorithms: Big O 
+[ https://en.wikipedia.org/wiki/Big_O_notation ]
+
+```{r }
+
+n=1:20
+
+y1 = n * log(n)
+y2 = choose(n,3)
+y3 = 2^n
+```
+
+
+
+### Plots show that some algorithms do not scale well with n.
+
+```{r warning=FALSE, message=FALSE}
+df = tibble(y1=y1, y2=y2, y3=y3)
+
+ggplot(df, aes(x=n)) +
+  ylim(0,1200) +
+  geom_line(aes(y=y1, colour = "y1"))  + 
+  geom_line(aes(y=y2, colour = "y2")) +
+  geom_line(aes(y=y3, colour = "y3"))   +
+  scale_colour_manual("", values = c("y1"="blue", "y2"="green", "y3"="red"),
+                      labels=c("n log n", "n choose m", expression(paste(2^n))), name="Big O") +
+  labs(x = "n", y = "time") +
+  theme_minimal() + theme(plot.title = element_text(size = 15)) +
+  ggtitle("Complexity depends on n, m=3") 
+  
+
+mainDir="."
+subDir="figures"
+dir.create(file.path(mainDir, subDir), showWarnings = FALSE)
+#ggsave(filename = "./figures/Big-O.pdf")
+```
+### PDF of an exponential distribution
+
+The exponential distribution or negative exponential distribution is the probability distribution of the distance between events in a Poisson point process, i.e., a process in which events occur continuously and independently at a constant average rate.
+
+The distance parameter could be any meaningful mono-dimensional measure of the process, such as time between production errors, or length along a roll of fabric in the weaving manufacturing process. It is a particular case of the gamma distribution. 
+
+```{r}
+lambda = .25   # arrival rate, e.g. . 1 error per 4 hours
+x = seq(1,15, .1)
+p = lambda * exp(-lambda*x)
+
+df=tibble(x,p)
+
+ggplot(df, aes(x=x) ) + 
+  geom_line(aes(y=p)) +
+  labs(x = "x (time between production errors", y = "p(x)") +
+  theme_minimal() + theme(plot.title = element_text(size = 15)) +
+  ggtitle("PDF: exponential function") 
+```
+
