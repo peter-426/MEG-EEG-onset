@@ -3,8 +3,7 @@
 """
 Created on Thu Mar 28 22:34:29 2024
 
-author: peter hebden
-email: phebden@gmail.com
+author: peter
 
 # code from:  https://osf.io/xf53t
 
