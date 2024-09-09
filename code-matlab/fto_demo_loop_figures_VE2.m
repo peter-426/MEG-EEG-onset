@@ -2,13 +2,15 @@
 % fto_demo_loop_figures_VE2
 %
 
+% virtual electrode 2 (VE2): for each session (based of VE1 from each 
+% participant in the session)
+
 set(groot,'defaultAxesToolbarVisible','off')
 
 
-% changed corepath and function path (PJH)
-% corepath = '/Volumes/fto2/';
-corepath = '/home/phebden/Glasgow/DRP-3-code';
-addpath([corepath,'/GAR/functions'])
+% change paths to your locations
+corepath = '/path-to-parent-folder';
+addpath([corepath,'/this-folder/functions'])
 
 % Note about plots: if figure NumberTitle is 'off', change to show titles
 
@@ -22,7 +24,7 @@ plot_folder = 'ftonsets_plots_VE2';
 % https://github.com/LIMO-EEG-Toolbox/limo_tools
 
 %% LOAD DATA
-
+% data folders are assumed to be in parent folder 
 fname_onsets = sprintf('%s/ftonsets_demographics/ftonsets_2ses', corepath);
 load(fname_onsets); 
 

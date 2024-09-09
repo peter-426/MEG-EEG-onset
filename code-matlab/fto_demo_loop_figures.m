@@ -17,7 +17,7 @@ plot_folder = 'ftonsets_plots';
 % https://github.com/LIMO-EEG-Toolbox/limo_tools
 
 %% LOAD DATA
-% data folder assumed to be in parent folder
+% data folders are assumed to be in parent folder
 fname_onsets = sprintf('%s/ftonsets_demographics/ftonsets_2ses', corepath);
 load(fname_onsets); 
 

@@ -1,9 +1,8 @@
 % fto_demo
 
-% changed corepath and function path (PJH)
-% corepath = '/Volumes/fto2/';
-corepath = '/home/phebden/Glasgow/DRP-3-code';
-addpath([corepath,'/GAR/functions'])
+% change paths to your locations
+corepath = '/path-to-parent-folder';
+addpath([corepath,'/this-folder/functions'])
 
 % Note about plots: if figure NumberTitle is 'off', change to show titles
 
@@ -18,7 +17,7 @@ plot_folder = 'ftonsets_plots';
 % https://github.com/LIMO-EEG-Toolbox/limo_tools
 
 %% LOAD DATA
-
+% data folders are assumed to be in parent folder
 fname_onsets = sprintf('%s/ftonsets_demographics/ftonsets_2ses', corepath);
 load(fname_onsets); 
 
